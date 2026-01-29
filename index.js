@@ -32,10 +32,11 @@ function createItem(item) {
 
   textElement.textContent = item;
 
-  deleteButton.addEventListener('click', function() {
-    const listItem = deleteButton.closest('.to-do__item');
-    listItem.remove();
+  const listItem = clone.querySelector('.to-do__item');
 
+  deleteButton.addEventListener('click', function() {
+    listItem.remove();
+    
     const items = getTasksFromDOM();
     saveTasks(items);
   });
